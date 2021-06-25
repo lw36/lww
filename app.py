@@ -164,9 +164,9 @@ def gm5(clarity="IF"):
 
 @app.route('/chart1')
 def chart1():
-    return render_template('chartsajax1.html', graphJSON=g(),graphJSON1=g1(),graphJSON2=g2())
-    # ,graphJSON3=g3(),graphJSON4=g4(),graphJSON5=g5())
+    return render_template('chartsajax1.html', graphJSON=g(),graphJSON1=g1(),graphJSON2=g2(),graphJSON4=g4(),graphJSON5=g5())
 
+#长条图
 def g():
     tips =pd.DataFrame(px.data.tips())
     fig=px.strip(tips, x="total_bill", y="time", orientation="h", color="smoker")
@@ -174,7 +174,7 @@ def g():
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
 
-
+#条形图
 def g1():
     tips = pd.DataFrame(px.data.tips())
     fig = px.bar(tips, x="sex", y="total_bill", color="smoker", barmode="group",
@@ -184,7 +184,7 @@ def g1():
 
     graphJSON1 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON1
-
+#散点图
 def g2():
     tips = pd.DataFrame(px.data.tips())
     fig = px.scatter(tips, x="total_bill", y="tip", facet_row="time", facet_col="day",
@@ -193,7 +193,7 @@ def g2():
 
     graphJSON2 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON2
-
+#
 # def g3():
 #     tips = pd.DataFrame(px.data.tips())
 #     fig = px.parallel_categories(tips, color="size", color_continuous_scale=px.
@@ -201,23 +201,23 @@ def g2():
 #
 #     graphJSON3 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 #     return graphJSON3
-#
-# def g4():
-#     tips = pd.DataFrame(px.data.tips())
-#     fig = px.histogram(tips, x="sex", y="tip", histfunc="avg", color="smoker",
-#              barmode="group", facet_row="time", facet_col="day",
-#              category_orders={"day": ["Thur", "Fri", "Sat", "Sun"],
-#              "time": ["Lunch", "Dinner"]})
-#
-#     graphJSON4 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-#     return graphJSON4
-#
-# def g5():
-#     tips = pd.DataFrame(px.data.tips())
-#     fig = px.box(tips, x="day", y="total_bill", color="smoker", notched=True)
-#
-#     graphJSON5 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-#     return graphJSON5
+#直方图
+def g4():
+    tips = pd.DataFrame(px.data.tips())
+    fig = px.histogram(tips, x="sex", y="tip", histfunc="avg", color="smoker",
+             barmode="group", facet_row="time", facet_col="day",
+             category_orders={"day": ["Thur", "Fri", "Sat", "Sun"],
+             "time": ["Lunch", "Dinner"]})
+
+    graphJSON4 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON4
+#箱型图
+def g5():
+    tips = pd.DataFrame(px.data.tips())
+    fig = px.box(tips, x="day", y="total_bill", color="smoker", notched=True)
+
+    graphJSON5 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON5
 
 
 @app.route('/senti')

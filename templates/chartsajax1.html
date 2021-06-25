@@ -40,12 +40,12 @@
     <div id="chart2" class="chart2"></div>
 </body>
 
-<body style="font-family:arial, sans-serif">
+<!--<body style="font-family:arial, sans-serif">-->
 
-<h1>并行类别图</h1>
-<!--    <input type="text" id="fname4" name="fname4" onchange="cb(this.value)">-->
-    <div id="chart3" class="chart3"></div>
-</body>
+<!--<h1>并行类别图</h1>-->
+<!--&lt;!&ndash;    <input type="text" id="fname4" name="fname4" onchange="cb(this.value)">&ndash;&gt;-->
+<!--    <div id="chart3" class="chart3"></div>-->
+<!--</body>-->
 
 <body style="font-family:arial, sans-serif">
 
@@ -72,10 +72,10 @@
     d = {{ graphJSON2 | safe }};
     Plotly.newPlot('chart2', d, {});
 </script>
-<script>
-    d = {{ graphJSON3 | safe }};
-    Plotly.newPlot('chart3', d, {});
-</script>
+<!--<script>-->
+<!--    d = {{ graphJSON3 | safe }};-->
+<!--    Plotly.newPlot('chart3', d, {});-->
+<!--</script>-->
 <script>
     d = {{ graphJSON4 | safe }};
     Plotly.newPlot('chart4', d, {});
