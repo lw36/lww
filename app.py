@@ -110,7 +110,7 @@ def cb():
 
 @app.route('/chart')
 def chart():
-    return render_template('chartsajax.html', graphJSON=gm(),graphJSON1=gm1(),graphJSON2=gm2(),graphJSON3=gm3(),graphJSON4=gm4(),graphJSON5=gm5())
+    return render_template('chartsajax.html', graphJSON=gm(),graphJSON1=gm1(),graphJSON2=gm2(),graphJSON3=gm3(),graphJSON4=gm4(),graphJSON5=gm5(),graphJSON6=g(),graphJSON7=g1(),graphJSON8=g2(),graphJSON9=g3(),graphJSON10=g4(),graphJSON11=g5())
 
 #长条图strip
 def gm():
@@ -160,19 +160,13 @@ def gm5(clarity="IF"):
 
     graphJSON5 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON5
-
-
-@app.route('/chart1')
-def chart1():
-    return render_template('chartsajax1.html', graphJSON=g(),graphJSON1=g1(),graphJSON2=g2(),graphJSON4=g4(),graphJSON5=g5())
-
 #长条图
 def g():
     tips =pd.DataFrame(px.data.tips())
     fig=px.strip(tips, x="total_bill", y="time", orientation="h", color="smoker")
 
-    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return graphJSON
+    graphJSON6 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON6
 
 #条形图
 def g1():
@@ -182,8 +176,8 @@ def g1():
                                                                               "Fri", "Sat", "Sun"],
                                                                       "time": ["Lunch", "Dinner"]})
 
-    graphJSON1 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return graphJSON1
+    graphJSON7 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON7
 #散点图
 def g2():
     tips = pd.DataFrame(px.data.tips())
@@ -191,16 +185,16 @@ def g2():
            color="smoker", trendline="ols",category_orders={"day": ["Thur",
            "Fri", "Sat", "Sun"], "time": ["Lunch", "Dinner"]})
 
-    graphJSON2 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return graphJSON2
-#
-# def g3():
-#     tips = pd.DataFrame(px.data.tips())
-#     fig = px.parallel_categories(tips, color="size", color_continuous_scale=px.
-#             colors.sequential.Inferno)
-#
-#     graphJSON3 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-#     return graphJSON3
+    graphJSON8 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON8
+
+def g3():
+    tips = pd.DataFrame(px.data.tips())
+    fig = px.parallel_categories(tips, color="size", color_continuous_scale=px.
+            colors.sequential.Inferno)
+
+    graphJSON9 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON9
 #直方图
 def g4():
     tips = pd.DataFrame(px.data.tips())
@@ -209,16 +203,15 @@ def g4():
              category_orders={"day": ["Thur", "Fri", "Sat", "Sun"],
              "time": ["Lunch", "Dinner"]})
 
-    graphJSON4 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return graphJSON4
+    graphJSON10 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON10
 #箱型图
 def g5():
     tips = pd.DataFrame(px.data.tips())
     fig = px.box(tips, x="day", y="total_bill", color="smoker", notched=True)
 
-    graphJSON5 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return graphJSON5
-
+    graphJSON11 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON11
 
 @app.route('/senti')
 def main():

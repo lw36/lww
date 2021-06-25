@@ -19,33 +19,75 @@
 </head>
 
 <body style="font-family:arial, sans-serif">
-<h1>长条图</h1>
+<h1>对钻石表进行可视化分析</h1>
+<h2>长条图</h2>
     <div id="chart" class="chart"></div>
 </body>
 
 <body style="font-family:arial, sans-serif">
-<h1>条形图</h1>
+<h2>条形图</h2>
     <div id="chart1" class="chart1"></div>
 </body>
 
 <body style="font-family:arial, sans-serif">
-<h1>散点图</h1>
+<h2>散点图</h2>
     <div id="chart2" class="chart2"></div>
 </body>
 
 <body style="font-family:arial, sans-serif">
-<h1>箱型图</h1>
+<h2>箱型图</h2>
     <div id="chart3" class="chart3"></div>
 </body>
 
 <body style="font-family:arial, sans-serif">
-<h1>直方图</h1>
+<h2>直方图</h2>
     <div id="chart4" class="chart4"></div>
 </body>
 
 <body style="font-family:arial, sans-serif">
-<h1>堆积区域图</h1>
-    <div id="chart5" class="chart2"></div>
+<h2>堆积区域图</h2>
+    <div id="chart5" class="chart5"></div>
+</body>
+<body style="font-family:arial, sans-serif">
+<h1>对小票进行可视化分析</h1>
+    <h2>长条图</h2>
+
+<!--    <input type="text" id="fname" name="fname" onchange="cb(this.value)">-->
+    <div id="chart6" class="chart6"></div>
+</body>
+
+<body style="font-family:arial, sans-serif">
+<h2>条形图</h2>
+
+<!--    <input type="text" id="fname1" name="fname1" onchange="cb(this.value)">-->
+    <div id="chart7" class="chart7"></div>
+</body>
+<body style="font-family:arial, sans-serif">
+
+<h2>散点图</h2>
+
+<!--    <input type="text" id="fname2" name="fname2" onchange="cb(this.value)">-->
+    <div id="chart8" class="chart8"></div>
+</body>
+
+<!--<body style="font-family:arial, sans-serif">-->
+
+<h2>并行类别图</h2>
+<!--    <input type="text" id="fname4" name="fname4" onchange="cb(this.value)">-->
+    <div id="chart9" class="chart9"></div>
+</body>
+
+<body style="font-family:arial, sans-serif">
+
+<h2>直方图</h2>
+
+<!--    <input type="text" id="fname5" name="fname5" onchange="cb(this.value)">-->
+    <div id="chart10" class="chart10"></div>
+</body>
+<h2>箱型图</h2>
+
+<!--    <input type="text" id="fname6" name="fname6" onchange="cb(this.value)">-->
+    <div id="chart11" class="chart11"></div>
 </body>
 
 <script>
@@ -71,5 +113,29 @@
 <script>
     d = {{ graphJSON5 | safe }};
     Plotly.newPlot('chart5', d, {});
+</script>
+<script>
+    d = {{ graphJSON6 | safe }};
+    Plotly.newPlot('chart6', d, {});
+</script>
+<script>
+    d = {{ graphJSON7 | safe }};
+    Plotly.newPlot('chart7', d, {});
+</script>
+<script>
+    d = {{ graphJSON8 | safe }};
+    Plotly.newPlot('chart8', d, {});
+</script>
+<script>
+    d = {{ graphJSON9 | safe }};
+    Plotly.newPlot('chart9', d, {});
+</script>
+<script>
+    d = {{ graphJSON10 | safe }};
+    Plotly.newPlot('chart10', d, {});
+</script>
+<script>
+    d = {{ graphJSON11 | safe }};
+    Plotly.newPlot('chart11', d, {});
 </script>
 </html>
