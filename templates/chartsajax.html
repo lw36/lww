@@ -77,18 +77,18 @@
     <div id="chart9" class="chart9"></div>
 </body>
 
-<!--<body style="font-family:arial, sans-serif">-->
+<body style="font-family:arial, sans-serif">
 
-<!--<h2>直方图</h2>-->
+<h2>直方图</h2>
 
-<!--&lt;!&ndash;    <input type="text" id="fname5" name="fname5" onchange="cb(this.value)">&ndash;&gt;-->
-<!--    <div id="chart10" class="chart10"></div>-->
-<!--</body>-->
-<!--<h2>箱型图</h2>-->
+<!--    <input type="text" id="fname5" name="fname5" onchange="cb(this.value)">-->
+    <div id="chart10" class="chart10"></div>
+</body>
+<h2>箱型图</h2>
 
-<!--&lt;!&ndash;    <input type="text" id="fname6" name="fname6" onchange="cb(this.value)">&ndash;&gt;-->
-<!--    <div id="chart11" class="chart11"></div>-->
-<!--</body>-->
+<!--    <input type="text" id="fname6" name="fname6" onchange="cb(this.value)">-->
+    <div id="chart11" class="chart11"></div>
+</body>
 
 <script>
     d = {{ graphJSON | safe }};
@@ -130,12 +130,12 @@
     d = {{ graphJSON9 | safe }};
     Plotly.newPlot('chart9', d, {});
 </script>
-<!--<script>-->
-<!--    d = {{ graphJSON10 | safe }};-->
-<!--    Plotly.newPlot('chart10', d, {});-->
-<!--</script>-->
-<!--<script>-->
-<!--    d = {{ graphJSON11 | safe }};-->
-<!--    Plotly.newPlot('chart11', d, {});-->
-<!--</script>-->
+<script>
+    d = {{ graphJSON10 | safe }};
+    Plotly.newPlot('chart10', d, {});
+</script>
+<script>
+    d = {{ graphJSON11 | safe }};
+    Plotly.newPlot('chart11', d, {});
+</script>
 </html>
