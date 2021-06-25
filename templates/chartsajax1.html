@@ -67,7 +67,13 @@
     <h2>输入国家如：India或China（大写字母开头）</h2>
 
     <input type="text" id="fname5" name="fname5" onchange="cb(this.value)">
-    <div id="chart5" class="chart2"></div>
+    <div id="chart5" class="chart5"></div>
+</body>
+<h1>1952-2007年的各国GDP可视化</h1>
+    <h2>输入国家如：India或China（大写字母开头）</h2>
+
+    <input type="text" id="fname6" name="fname6" onchange="cb(this.value)">
+    <div id="chart6" class="chart6"></div>
 </body>
 
 <script>
@@ -93,5 +99,9 @@
 <script>
     d = {{ graphJSON5 | safe }};
     Plotly.newPlot('chart5', d, {});
+</script>
+<script>
+    d = {{ graphJSON6 | safe }};
+    Plotly.newPlot('chart6', d, {});
 </script>
 </html>

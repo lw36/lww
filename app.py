@@ -112,11 +112,11 @@ def cb():
 def chart():
     return render_template('chartsajax.html', graphJSON=gm(),graphJSON1=gm1(),graphJSON2=gm2(),graphJSON3=gm3(),graphJSON4=gm4(),graphJSON5=gm5())
 
-#折线图line
+#长条图strip
 def gm():
     df = pd.read_csv('diamonds.csv')
 
-    fig = px.line(df, x="color", y="x", color="cut")
+    fig = px.strip(df, x="clarity", y="carat", color="cut")
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
@@ -164,11 +164,11 @@ def gm5(clarity="IF"):
 
 @app.route('/chart1')
 def chart1():
-    return render_template('chartsajax1.html', graphJSON=g(),graphJSON1=g1(),graphJSON2=g2(),graphJSON3=g3(),graphJSON4=g4())
+    return render_template('chartsajax1.html', graphJSON=g(),graphJSON1=g1(),graphJSON2=g2(),graphJSON3=g3(),graphJSON4=g4(),graphJSON5=g5(),graphJSON6=g6())
 
 def g():
     tips =pd.DataFrame(px.data.tips())
-    fig=px.bar(tips, x="sex", y="total_bill", color="smoker", barmode="group")
+    fig=px.strip(tips, x="total_bill", y="time", orientation="h", color="smoker")
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
@@ -183,29 +183,43 @@ def g1():
     graphJSON1 = json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON1
 
-def g2(attention='divided'):
-	df = pd.read_csv('attention.csv')
+def g2():
+    tips = pd.DataFrame(px.data.tips())
+    fig1 = px.scatter(tips, x="total_bill", y="tip", facet_row="time", facet_col="day",
+           color="smoker", trendline="ols",category_orders={"day": ["Thur",
+           "Fri", "Sat", "Sun"], "time": ["Lunch", "Dinner"]})
+    graphJSON2 = json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON2
 
-	fig = px.line(df[df['attention']==attention], x="subject", y="score",color="solutions")
-
-	graphJSON2 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-	return graphJSON2
-
-def g3(attention="divided"):
-    df = pd.read_csv('attention.csv')
-
-    fig = px.scatter_ternary(df[df['attention'] == attention], a="subject", b="score", c="solutions",color="num")
+def g3():
+    tips = pd.DataFrame(px.data.tips())
+    fig = px.scatter(tips, x="total_bill", y="tip", color="size", facet_col="sex",
+           color_continuous_scale=px.colors.sequential.Viridis,
+           render_mode="webgl")
     graphJSON3 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON3
 
-def g4(attnr="divided"):
-    df = pd.read_csv('anagrams.csv')
+def g4():
+    tips = pd.DataFrame(px.data.tips())
+    fig = px.parallel_categories(tips, color="size", color_continuous_scale=px.
+            colors.sequential.Inferno)
+    graphJSON4 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON4
 
-    fig=px.line(df[df['attnr']== attnr], x="num3", y="num2", color="num1")
+def g5():
+    tips = pd.DataFrame(px.data.tips())
+    fig = px.histogram(tips, x="sex", y="tip", histfunc="avg", color="smoker",
+             barmode="group", facet_row="time", facet_col="day",
+             category_orders={"day": ["Thur", "Fri", "Sat", "Sun"],
+             "time": ["Lunch", "Dinner"]})
+    graphJSON5 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON5
 
-    graphJSON2 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return graphJSON2
-
+def g6():
+    tips = pd.DataFrame(px.data.tips())
+    fig = px.box(tips, x="day", y="total_bill", color="smoker", notched=True)
+    graphJSON6 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON6
 
 @app.route('/senti')
 def main():
