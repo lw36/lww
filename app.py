@@ -105,18 +105,106 @@ def cv(person=person):
 @app.route('/callback', methods=['POST', 'GET'])
 def cb():
 	return gm(request.args.get('data'))
-   
+
+
+
 @app.route('/chart')
-def index():
-	return render_template('chartsajax.html',  graphJSON=gm())
+def chart():
+    return render_template('chartsajax.html', graphJSON=gm(),graphJSON1=gm1(),graphJSON2=gm2(),graphJSON3=gm3(),graphJSON4=gm4(),graphJSON5=gm5())
 
-def gm(country='United Kingdom'):
-	df = pd.DataFrame(px.data.gapminder())
+#折线图line
+def gm():
+    df = pd.read_csv('diamonds.csv')
 
-	fig = px.line(df[df['country']==country], x="year", y="gdpPercap")
+    fig = px.line(df, x="color", y="x", color="cut")
 
-	graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-	return graphJSON
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON
+#条形图bar
+def gm1(color="J"):
+    df = pd.read_csv('diamonds.csv')
+
+    fig = px.bar(df[df['color'] == color], x="clarity", y="carat", color="cut")
+
+    graphJSON1 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON1
+#散点图scatter
+def gm2(clarity="IF"):
+    df = pd.read_csv('diamonds.csv')
+
+    fig=px.scatter(df[df['clarity']== clarity], x="price", y="color", color="cut")
+
+    graphJSON2 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON2
+#箱形图box
+def gm3(clarity="IF"):
+    df = pd.read_csv('diamonds.csv')
+
+    fig = px.box(df[df['clarity']== clarity], x="cut", y="color")
+
+    graphJSON3 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON3
+#直方图histogram
+def gm4(clarity="IF"):
+    df = pd.read_csv('diamonds.csv')
+
+    fig = px.histogram(df[df['clarity']== clarity], x="color", y="carat", color="cut")
+
+    graphJSON4 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON4
+#堆积区域图area
+def gm5(clarity="IF"):
+    df = pd.read_csv('diamonds.csv')
+
+    fig = px.area(df[df['clarity']== clarity], x="color", y="carat", color="cut")
+
+    graphJSON5 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON5
+
+
+@app.route('/chart1')
+def chart1():
+    return render_template('chartsajax1.html', graphJSON=g(),graphJSON1=g1(),graphJSON2=g2(),graphJSON3=g3(),graphJSON4=g4())
+
+def g():
+    tips =pd.DataFrame(px.data.tips())
+    fig=px.bar(tips, x="sex", y="total_bill", color="smoker", barmode="group")
+
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON
+
+
+def g1():
+    tips = pd.DataFrame(px.data.tips())
+    fig1 = px.bar(tips, x="sex", y="total_bill", color="smoker", barmode="group",
+                  facet_row="time", facet_col="day", category_orders={"day": ["Thur",
+                                                                              "Fri", "Sat", "Sun"],
+                                                                      "time": ["Lunch", "Dinner"]})
+    graphJSON1 = json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON1
+
+def g2(attention='divided'):
+	df = pd.read_csv('attention.csv')
+
+	fig = px.line(df[df['attention']==attention], x="subject", y="score",color="solutions")
+
+	graphJSON2 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+	return graphJSON2
+
+def g3(attention="divided"):
+    df = pd.read_csv('attention.csv')
+
+    fig = px.scatter_ternary(df[df['attention'] == attention], a="subject", b="score", c="solutions",color="num")
+    graphJSON3 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON3
+
+def g4(attnr="divided"):
+    df = pd.read_csv('anagrams.csv')
+
+    fig=px.line(df[df['attnr']== attnr], x="num3", y="num2", color="num1")
+
+    graphJSON2 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON2
 
 
 @app.route('/senti')
