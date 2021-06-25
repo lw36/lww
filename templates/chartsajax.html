@@ -63,12 +63,12 @@
     <div id="chart7" class="chart7"></div>
 </body>
 
-<!--<body style="font-family:arial, sans-serif">-->
-<!--<h2>散点图</h2>-->
+<body style="font-family:arial, sans-serif">
+<h2>散点图</h2>
 
-<!--&lt;!&ndash;    <input type="text" id="fname2" name="fname2" onchange="cb(this.value)">&ndash;&gt;-->
-<!--    <div id="chart8" class="chart8"></div>-->
-<!--</body>-->
+<!--    <input type="text" id="fname2" name="fname2" onchange="cb(this.value)">-->
+    <div id="chart8" class="chart8"></div>
+</body>
 
 <body style="font-family:arial, sans-serif">
 
@@ -122,10 +122,11 @@
     d = {{ graphJSON7 | safe }};
     Plotly.newPlot('chart7', d, {});
 </script>
-<!--<script>-->
-<!--    d = {{ graphJSON8 | safe }};-->
-<!--    Plotly.newPlot('chart8', d, {});-->
-<!--</script>-->
+
+<script>
+    d = {{ graphJSON8 | safe }};
+    Plotly.newPlot('chart8', d, {});
+</script>
 <script>
     d = {{ graphJSON9 | safe }};
     Plotly.newPlot('chart9', d, {});
