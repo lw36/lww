@@ -111,7 +111,7 @@ def cb():
 @app.route('/chart')
 def chart():
     return render_template('chartsajax.html', graphJSON=gm(),graphJSON1=gm1(),graphJSON2=gm2(),graphJSON3=gm3(),graphJSON4=gm4(),graphJSON5=gm5(),
-                           graphJSON6=g(),graphJSON7=g1())
+                           graphJSON6=g(),graphJSON7=g1(),graphJSON8=g2())
 
 #长条图strip
 def gm():
@@ -179,16 +179,16 @@ def g1():
 
     graphJSON7 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON7
-# #散点图
-# def g2():
-#     tips = pd.DataFrame(px.data.tips())
-#     fig = px.scatter(tips, x="total_bill", y="tip", facet_row="time", facet_col="day",
-#            color="smoker", trendline="ols",category_orders={"day": ["Thur",
-#            "Fri", "Sat", "Sun"], "time": ["Lunch", "Dinner"]})
-#
-#     graphJSON8 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-#     return graphJSON8
-#
+#散点图
+def g2():
+    tips = pd.DataFrame(px.data.tips())
+    fig = px.scatter(tips, x="total_bill", y="tip", facet_row="time", facet_col="day",
+           color="smoker", trendline="ols",category_orders={"day": ["Thur",
+           "Fri", "Sat", "Sun"], "time": ["Lunch", "Dinner"]})
+
+    graphJSON8 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON8
+
 # def g3():
 #     tips = pd.DataFrame(px.data.tips())
 #     fig = px.parallel_categories(tips, color="size", color_continuous_scale=px.
