@@ -42,17 +42,9 @@
 
 <body style="font-family:arial, sans-serif">
 
-<h1>散点图</h1>
-
-<!--    <input type="text" id="fname3" name="fname3" onchange="cb(this.value)">-->
-    <div id="chart3" class="chart3"></div>
-</body>
-
-<body style="font-family:arial, sans-serif">
-
 <h1>并行类别图</h1>
 <!--    <input type="text" id="fname4" name="fname4" onchange="cb(this.value)">-->
-    <div id="chart4" class="chart4"></div>
+    <div id="chart3" class="chart3"></div>
 </body>
 
 <body style="font-family:arial, sans-serif">
@@ -60,12 +52,12 @@
 <h1>直方图</h1>
 
 <!--    <input type="text" id="fname5" name="fname5" onchange="cb(this.value)">-->
-    <div id="chart5" class="chart5"></div>
+    <div id="chart4" class="chart4"></div>
 </body>
 <h1>箱型图</h1>
 
 <!--    <input type="text" id="fname6" name="fname6" onchange="cb(this.value)">-->
-    <div id="chart6" class="chart6"></div>
+    <div id="chart5" class="chart56"></div>
 </body>
 
 <script>
@@ -92,8 +84,5 @@
     d = {{ graphJSON5 | safe }};
     Plotly.newPlot('chart5', d, {});
 </script>
-<script>
-    d = {{ graphJSON6 | safe }};
-    Plotly.newPlot('chart6', d, {});
-</script>
+
 </html>
