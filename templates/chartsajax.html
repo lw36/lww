@@ -48,22 +48,22 @@
     <h2>堆积区域图</h2>
         <div id="chart5" class="chart5"></div>
 </body>
+
 <body style="font-family:arial, sans-serif">
 <h1>对小票进行可视化分析</h1>
     <h2>长条图</h2>
-
 <!--    <input type="text" id="fname" name="fname" onchange="cb(this.value)">-->
     <div id="chart6" class="chart6"></div>
 </body>
 
-<!--<body style="font-family:arial, sans-serif">-->
-<!--<h2>条形图</h2>-->
+<body style="font-family:arial, sans-serif">
+<h2>条形图</h2>
 
-<!--&lt;!&ndash;    <input type="text" id="fname1" name="fname1" onchange="cb(this.value)">&ndash;&gt;-->
-<!--    <div id="chart7" class="chart7"></div>-->
-<!--</body>-->
-<!--<body style="font-family:arial, sans-serif">-->
+<!--    <input type="text" id="fname1" name="fname1" onchange="cb(this.value)">-->
+    <div id="chart7" class="chart7"></div>
+</body>
 
+<!--<body style="font-family:arial, sans-serif">-->
 <!--<h2>散点图</h2>-->
 
 <!--&lt;!&ndash;    <input type="text" id="fname2" name="fname2" onchange="cb(this.value)">&ndash;&gt;-->
@@ -118,10 +118,10 @@
     d = {{ graphJSON6 | safe }};
     Plotly.newPlot('chart6', d, {});
 </script>
-<!--<script>-->
-<!--    d = {{ graphJSON7 | safe }};-->
-<!--    Plotly.newPlot('chart7', d, {});-->
-<!--</script>-->
+<script>
+    d = {{ graphJSON7 | safe }};
+    Plotly.newPlot('chart7', d, {});
+</script>
 <!--<script>-->
 <!--    d = {{ graphJSON8 | safe }};-->
 <!--    Plotly.newPlot('chart8', d, {});-->

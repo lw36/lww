@@ -110,7 +110,8 @@ def cb():
 
 @app.route('/chart')
 def chart():
-    return render_template('chartsajax.html', graphJSON=gm(),graphJSON1=gm1(),graphJSON2=gm2(),graphJSON3=gm3(),graphJSON4=gm4(),graphJSON5=gm5(),graphJSON6=g())
+    return render_template('chartsajax.html', graphJSON=gm(),graphJSON1=gm1(),graphJSON2=gm2(),graphJSON3=gm3(),graphJSON4=gm4(),graphJSON5=gm5(),
+                           graphJSON6=g(),graphJSON7=g1())
 
 #长条图strip
 def gm():
@@ -168,16 +169,16 @@ def g():
     graphJSON6 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON6
 
-# #条形图
-# def g1():
-#     tips = pd.DataFrame(px.data.tips())
-#     fig = px.bar(tips, x="sex", y="total_bill", color="smoker", barmode="group",
-#                   facet_row="time", facet_col="day", category_orders={"day": ["Thur",
-#                                                                               "Fri", "Sat", "Sun"],
-#                                                                       "time": ["Lunch", "Dinner"]})
-#
-#     graphJSON7 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-#     return graphJSON7
+#条形图
+def g1():
+    tips = pd.DataFrame(px.data.tips())
+    fig = px.bar(tips, x="sex", y="total_bill", color="smoker", barmode="group",
+                  facet_row="time", facet_col="day", category_orders={"day": ["Thur",
+                                                                              "Fri", "Sat", "Sun"],
+                                                                      "time": ["Lunch", "Dinner"]})
+
+    graphJSON7 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON7
 # #散点图
 # def g2():
 #     tips = pd.DataFrame(px.data.tips())
