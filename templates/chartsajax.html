@@ -17,78 +17,121 @@
 
 
 </head>
-
+<div>
+<center><h1>对钻石表进行可视化分析</h1></center>
+    <h2>1 数据描述</h2>
+<h3>1.1 数据获取</h3>
+<p>该数据是老师给的数据集，直接使用该数据集对钻石列表进行可视化分析，使用Plotly工具对数据进行可视化分析。</p>
+<h3>1.2数据解释</h3>
+<p>该数据是对钻石的一些属性进行可视化分析，共53940条数据，共10个字段，下面开始介绍个字段：
+    <br>carat：表示钻石的重量，重量的单位是克拉；
+    <br>cut：表示钻石的切割质量，切割质量分为Ideal、Premium、Good、Very Good、Fail（理想、优质、良好、非常好、失败）。
+    <br>color:表示钻石的色彩，J (worst) to D (best)（从最差到最佳）。
+    <br>clarity:表示钻石的净度，净度分为IF、VVS1、VVS2、VS1、VS2、SI1、SI2、I1（内含物的含量，从内无瑕疵到内含等级）。
+    <br>depth:表示钻石的全深比。
+    <br>table：表示钻石的台面。
+    <br>price:表示钻石的价格。
+    <br>x:长，单位mm
+    <br>y:宽，单位mm
+    <br>z:深，单位mm</p>
+<h2>2 数据可视化分析</h2>
 <body style="font-family:arial, sans-serif">
-<h1>对钻石表进行可视化分析</h1>
-    <h2>长条图</h2>
+<h3>2.1 长条图</h3>
         <div id="chart" class="chart"></div>
+<p>该长条图是对钻石列表的carat、cut、clarity进行分析，x轴是钻石的净度，y轴是钻石的重量，颜色代表砖石的切割质量，从图中可以看出，
+    在钻石克拉越大，内含物的级别越高，相反在无内含物，切割质量好的，钻石的重量越小。</p>
 </body>
 
 <body style="font-family:arial, sans-serif">
-    <h2>条形图</h2>
+    <h3>2.2条形图</h3>
         <div id="chart1" class="chart1"></div>
+    <p>该图是条形图，x轴是钻石的净度，y轴是钻石的重量，颜色代表钻石的切割质量，从图中可以看出，当钻石内无内含物
+    时，钻石的重量越小。</p>
 </body>
 
 <body style="font-family:arial, sans-serif">
-    <h2>散点图</h2>
+    <h3>2.3散点图</h3>
         <div id="chart2" class="chart2"></div>
+    <p>该图为散点图，x轴是钻石的价格，y轴是钻石的色彩，不用的颜色代表砖石的切割质量，从图中可以看出，钻石的价格大多
+    在0到5k之间，价格高的钻石很少。</p>
 </body>
 
 <body style="font-family:arial, sans-serif">
-    <h2>箱型图</h2>
+    <h3>2.4箱型图</h3>
         <div id="chart3" class="chart3"></div>
+    <p>该图是箱型图，x轴是切割质量，y轴是钻石的色彩，从图中可以看出，该图没有异常值。</p>
 </body>
 
 <body style="font-family:arial, sans-serif">
-    <h2>直方图</h2>
+    <h3>2.5直方图</h3>
         <div id="chart4" class="chart4"></div>
+    <p>该图是直方图，x轴是钻色的色彩，y轴是部分钻石的重量，不同的颜色代表切割质量，从图中可以看出，切割质量最好的
+    大多色彩在G，而在色彩最好的区间，切割质量好的很少。</p>
 </body>
 
 <body style="font-family:arial, sans-serif">
-    <h2>堆积区域图</h2>
+    <h3>2.6堆积区域图</h3>
         <div id="chart5" class="chart5"></div>
+    <p>该图是堆积区域图，x轴是钻石的色彩质量，y轴是钻石的重量，区域颜色是切割质量，总中可以看出，切割质量最好的钻石
+    色彩在G到E之间。</p>
 </body>
 
+<center><h1>对餐馆的订单流水进行可视化分析</h1></center>
+    <h2>1 数据描述</h2>
+<h3>1.1 数据获取</h3>
+    <p>该数据是Plotly中自带的数据集，直接使用Plotly工具对数据进行可视化即可。</p>
+<h3>1.2数据解释</h3>
+    <p>该样本数据集为小费数据集，是餐饮行业收集的数据，共包含7个数据字段，共有245个样本:
+        <br>total_bill：消费总金额
+        <br>tip：小费金额
+        <br>sex：顾客性别
+        <br>smoker：顾客是否吸烟
+        <br>day：消费的星期
+        <br>time：聚餐的时间段
+        <br>size：聚餐人数
+    </p>
+<h2>2 数据可视化分析</h2>
+
 <body style="font-family:arial, sans-serif">
-<h1>对小票进行可视化分析</h1>
-    <h2>长条图</h2>
-<!--    <input type="text" id="fname" name="fname" onchange="cb(this.value)">-->
+    <h3>2.1长条图</h3>
     <div id="chart6" class="chart6"></div>
+    <p>该图为长条图，x轴是消费总金额，y轴是顾客就餐时间段，颜色代表该顾客是否吸烟，从图中可以看出，晚上就餐的顾客
+        比中午就餐的顾客多。</p>
 </body>
 
 <body style="font-family:arial, sans-serif">
-<h2>条形图</h2>
-
-<!--    <input type="text" id="fname1" name="fname1" onchange="cb(this.value)">-->
+<h3>2.2条形图</h3>
     <div id="chart7" class="chart7"></div>
+    <p>该图是条形图，x轴是性别，y轴是消费总金额，颜色代表顾客是否吸烟，从图中可以看出，男顾客吸烟的比女顾客吸烟的多。</p>
 </body>
 
 <body style="font-family:arial, sans-serif">
-<h2>散点图</h2>
-
-<!--    <input type="text" id="fname2" name="fname2" onchange="cb(this.value)">-->
+<h3>2.3散点图</h3>
     <div id="chart8" class="chart8"></div>
+    <p>该图是散点图，x轴是消费金额，y轴是小费金额，颜色代表聚餐人数，从图中可以看出，男女顾客的大多数消费金额都在10到20之间。</p>
 </body>
 
 <body style="font-family:arial, sans-serif">
 
-<h2>并行类别图</h2>
-<!--    <input type="text" id="fname4" name="fname4" onchange="cb(this.value)">-->
+<h3>2.4并行类别图</h3>
     <div id="chart9" class="chart9"></div>
+    <p>从图中可以看出，聚餐人数不同时，在各个方面的不同及趋势。</p>
 </body>
 
 <body style="font-family:arial, sans-serif">
 
-<h2>直方图</h2>
-
-<!--    <input type="text" id="fname5" name="fname5" onchange="cb(this.value)">-->
+<h3>2.5直方图</h3>
     <div id="chart10" class="chart10"></div>
+    <p>顾客在晚餐的消费总金额多于午餐的消费总金额。在星期四和星期五这里天中，人们在午餐的消费总金额多于晚餐的消费总金额，
+        而星期六和星期天这两天与前两天相反。</p>
 </body>
-<h2>箱型图</h2>
-
-<!--    <input type="text" id="fname6" name="fname6" onchange="cb(this.value)">-->
+<h3>2.6箱型图</h3>
     <div id="chart11" class="chart11"></div>
+    <p>在该箱型图中，分别显示了女性和男性四天的消费总金额统计。其中星期六的男性和女性的消费总金额
+        都高于其它三天的消费总金额。</p>
 </body>
+</div>
+
 
 <script>
     d = {{ graphJSON | safe }};

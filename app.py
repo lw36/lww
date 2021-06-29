@@ -172,19 +172,14 @@ def g():
 #条形图
 def g1():
     tips = pd.DataFrame(px.data.tips())
-    fig = px.bar(tips, x="sex", y="total_bill", color="smoker", barmode="group",
-                  facet_row="time", facet_col="day", category_orders={"day": ["Thur",
-                                                                              "Fri", "Sat", "Sun"],
-                                                                      "time": ["Lunch", "Dinner"]})
+    fig = px.bar(tips, x="sex", y="total_bill", color="smoker", barmode="group",facet_row="time", facet_col="day", category_orders={"day": ["Thur","Fri", "Sat", "Sun"],"time": ["Lunch", "Dinner"]})
 
     graphJSON7 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON7
 #散点图
 def g2():
     tips = pd.DataFrame(px.data.tips())
-    fig = px.scatter(tips, x="total_bill", y="tip", color="size", facet_col="sex",
-           color_continuous_scale=px.colors.sequential.Viridis,
-           render_mode="webgl")
+    fig = px.scatter(tips, x="total_bill", y="tip", color="size", facet_col="sex",color_continuous_scale=px.colors.sequential.Viridis,render_mode="webgl")
 
     graphJSON8 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON8
@@ -192,18 +187,14 @@ def g2():
 #并行类别图
 def g3():
     tips = pd.DataFrame(px.data.tips())
-    fig = px.parallel_categories(tips, color="size", color_continuous_scale=px.
-            colors.sequential.Inferno)
+    fig = px.parallel_categories(tips, color="size", color_continuous_scale=px.colors.sequential.Inferno)
 
     graphJSON9 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON9
 #直方图
 def g4():
     tips = pd.DataFrame(px.data.tips())
-    fig = px.histogram(tips, x="sex", y="tip", histfunc="avg", color="smoker",
-             barmode="group", facet_row="time", facet_col="day",
-             category_orders={"day": ["Thur", "Fri", "Sat", "Sun"],
-             "time": ["Lunch", "Dinner"]})
+    fig = px.histogram(tips, x="sex", y="tip", histfunc="avg", color="smoker",barmode="group", facet_row="time", facet_col="day",category_orders={"day": ["Thur", "Fri", "Sat", "Sun"],"time": ["Lunch", "Dinner"]})
 
     graphJSON10 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON10
